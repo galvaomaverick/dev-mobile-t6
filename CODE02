@@ -1,0 +1,66 @@
+class Pessoa{
+    constructor(pNome, pEndereco){
+        this.nome = pNome;
+        this.endereco = pEndereco;
+    }
+    get Nome(){return this.nome};
+    set Nome(pNome){this.Nome = pNome};
+    
+    get Endereco(){return this.endereco};
+    set Endereco(pEndereco){this.endereco = pEndereco};
+
+    toString(){
+        return `Nome:  ${this.Nome} \nEndereco: ${this.endereco}`;
+    }
+    
+}
+
+class Fisica extends Pessoa{
+    constructor(pNome, pEndereco, pCpf, pDnascimento){
+        super(pNome, pEndereco);
+        this.cpf = pCpf;
+        this.dNascimento = pDnascimento;
+    }
+    get Cpf(){return this.cpf};
+    set Cpf(pCpf){this.cpf = pCpf};
+
+    get DNascimento(){return this.dNascimento};
+    set DNascimento(pDnascimento){this.dNascimento = pDnascimento};
+
+    toString(){
+        let retorno = super.toString();
+        retorno = retorno + `\nCpf: ${this.cpf} \nNascimento: ${this.dNascimento}`;
+        return retorno;
+    }
+
+}
+
+class Juridica extends Pessoa{
+    constructor(pNome, pEndereco, pCnpj, pRazaoSocial){
+        super(pNome, pEndereco);
+        this.Cnpj = pCnpj;
+        this.Razaosocial = pRazaoSocial;
+
+    }
+    get Cnpj(){return this.Cnpj};
+    set Cnpj(pCnpj){ this.cnpj = pCnpj};
+
+    get RazaoSocial(){return this.razaosocial};
+    set RazaoSocial(pRazaoSocial){this.razaosocial = pRazaoSocial};
+
+    toString(){
+        let retorno = super.toString();
+        retorno = retorno + `\nCnpj: ${this.cnpj} \nRazao Social: ${this.Razaosocial}`;
+        return retorno;
+    }
+
+}
+
+var pessoa = new Pessoa("RODRIGO, "Ouvidor, 667");
+console.log(pessoa.toString());
+
+var fisica = new Fisica("Marcos", "Rua direita, 77","333.333.333-33", "01/01/1950");
+console.log(fisica.toString());
+
+var juridica = new Juridica("Entrega voada", "DInir Silva, 666", "55.555.555/0001-5", "Logistica Ltda");
+console.log(juridica.toString());
